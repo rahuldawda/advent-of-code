@@ -1,20 +1,20 @@
 from collections import *
-from functools import lru_cache
-import fileinput
-import heapq
-import itertools
-import math
-import random
-import re
-import sys
 
 def part1(input):
-    return -1
+    count = 0
+    for i in range(len(input)):
+        if input[i-1] < input[i]:
+            count += 1
+    return count
 
 def part2(input):
-    return -1
+    count = 0
+    for i in range(len(input)):
+        if i >= 3 and input[i-1] + input[i-2] + input[i-3] < input[i] + input[i-1] + input[i-2]:
+            count += 1
+    return count
 
 data = open("day1.txt", "r").read().splitlines()
-
-print(part1(data))
-print(part2(data))
+input = [int(x) for x in data]
+print(part1(input))
+print(part2(input))
