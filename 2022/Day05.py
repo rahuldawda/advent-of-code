@@ -26,7 +26,7 @@ def part1(data,cargo):
 
     return output
 
-def part2(data,stacks):
+def part2(data,cargo):
     for line in data[0].split('\n'):
         size = int(line.split(' ')[1])
         source = int(line.split(' ')[3])
@@ -34,9 +34,9 @@ def part2(data,stacks):
 
         values = []
         for _ in range(size):
-            value = stacks[source-1].pop()
+            value = cargo[source-1].pop()
             values.append(value)
-        stacks[destination-1].extend(values[::-1])
+        cargo[destination-1].extend(values[::-1])
 
     output = ''
     for x in cargo:
